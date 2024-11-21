@@ -11,6 +11,11 @@
     <link rel="shortcut icon" href="./images/logo.svg" type="image/x-icon">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/transitions.css">
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    
+
+
 </head>
 <body>
     

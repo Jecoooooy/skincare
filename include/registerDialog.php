@@ -1,32 +1,45 @@
 
-<div class="modal fade" id="registerDialog" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="registerDialog" tabindex="-1" aria-labelledby="register" aria-hidden="true" >
     <div class="modal-dialog  modal-lg modal-dialog-centered">
-        <div class="modal-content overflow-hidden shadow flex-row">
-            <div class="col">
-                <img src="./images/modalPhoto.svg" class=" object-fit-cover" alt="modal photo">
-            </div>
-            <div class="modal-body col">
-                <form id="mockupForm">
-                    <div class="d-flex align-items-center justify-content-between pb-5">
-                        <h5 class="modal-title" id="exampleModalLabel">Register to learn more</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="modal-content overflow-hidden shadow ">
+            <!-- <div class="modal-body"> -->
+                <div class="d-flex ">
+                    <div class="w-50 dialog-photo">
+                        <img src="./images/modalPhoto.svg" class=" object-fit-cover" alt="modal photo">
                     </div>
-                    <div class="form-underlined">
-                        <input type="text" id="name" name="name" class="form-control underline" placeholder=" " />
-                        <label for="name" class="form-label">Name</label>
+                    <div class=" register-dialog p-4">
+                        <div class="d-flex justify-content-end w-100">
+                            <button type="button" id="closeModal" class="btn-close" data-bs-dismiss="modal"  ></button>
+                        </div>
+                        <div>
+                            <h2 class="fs-2"> REGISTER TO LEARN MORE</h2>
+                        </div>
+                        <form id="registerForm" action="config/insert.php" method="POST">
+        
+                            <div class="form-group">
+                                <label for="first_name">First Name</label>
+                                <input type="text" class="form-control" id="first_name" name="first_name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="last_name">Last Name</label>
+                                <input type="text" class="form-control" id="last_name" name="last_name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone_number">Phone Number</label>
+                                <input type="text" class="form-control" id="phone_number" name="phone_number" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                            <br>
+                            <div class="g-recaptcha" data-sitekey="6LdS_4QqAAAAAODKIY9gTPwJTqCuTJNB33aIjwct"></div>
+                            <br>
+                            <button type="submit" class="btn w-100 btn-primary mt-3">Submit</button>
+                        </form>
                     </div>
-                    <div class="form-underlined">
-                        <input type="email" id="email" name="email" class="form-control" placeholder=" " />
-                        <label for="email" class="form-label">Email</label>
-                    </div>
-                    <div class="form-underlined">
-                        <textarea type="text" id="message" name="message"  class="form-control"  rows="3" placeholder=" "></textarea>
-                        <label for="message" class="form-label">Message</label>
-                    </div>
-                    <div id="responseMessage" class="mt-3"></div>
-                    <button type="submit" class="btn w-100 btn-primary">Submit</button>
-                </form>
-            </div>
+                </div>
+            <!-- </div> -->
         </div>
     </div>
 </div>

@@ -6,7 +6,6 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
     
     <script src="./js/submitForm.js"></script>
-    <script src="./js/navbar.js"></script>
-    <script src="./js/data.js"></script>
+    <script src="./js/scrollEvent.js"></script>
 </body>
 </html>
