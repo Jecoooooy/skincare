@@ -1,5 +1,4 @@
 $(document).ready(function() {
-    // Apply jQuery validation to the form
     $("#registerForm").validate({
         rules: {
             first_name: {
@@ -53,21 +52,19 @@ $(document).ready(function() {
                 return false;
             }
 
-            // Prevent the form from submitting normally
             event.preventDefault();
             
-            var formData = $(form).serialize();  // Serialize form data
+            var formData = $(form).serialize();  
             formData += "&g-recaptcha-response=" + encodeURIComponent(captchaResponse);
 
-            // AJAX request
             $.ajax({
                 type: "POST",
                 url: "config/insert.php",      
                 data: formData,
-                dataType: "json",  // Expecting a JSON response
+                dataType: "json", 
                 success: function(response) {
                     if (response.status === "success") {
-                        // Show success message
+                        // if success
                         $("#notification").html('<div class="alert alert-success alert-dismissible fade show" id="auto-close-alert" role="alert">' + response.message + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
                         $(form).trigger('reset');  // Reset form fields
                         grecaptcha.reset(); // Reset capcha
@@ -75,17 +72,17 @@ $(document).ready(function() {
                             $('#closeModal').click();  // Close modal after 500ms
                         }, 500);
                     } else {
-                        // Show error message
+                        // if error
                         $("#notification").html('<div class="alert alert-danger alert-dismissible fade show" id="auto-close-alert" role="alert">' + response.message + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
                         grecaptcha.reset(); // Reset capcha
                     }
                 },
                 error: function() {
-                    // Handle AJAX request errors
+                    // Handle request errors
                     $("#notification").html('<div class="alert alert-danger alert-dismissible fade show" id="auto-close-alert" role="alert">An error occurred. Please try again later.<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
                 }
             }).then(() => {
-                // Automatically close the alert after 3 seconds
+                // Automatically close the alert 
                 setTimeout(function() {
                     var alert = document.getElementById('auto-close-alert');
                     var closeButton = alert.querySelector('.btn-close');
