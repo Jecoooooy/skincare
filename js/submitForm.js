@@ -47,50 +47,51 @@ $(document).ready(function() {
         },
         submitHandler: function(form, event) {
             var captchaResponse = grecaptcha.getResponse();
-
+            
             if (!captchaResponse) {
                 alert("Please verify that you are not a robot.");
                 return false;
             }
-        
+
             // Prevent the form from submitting normally
             event.preventDefault();
-            var formData = $(form).serialize(); // Serialize form data
             
+            var formData = $(form).serialize();  // Serialize form data
             formData += "&g-recaptcha-response=" + encodeURIComponent(captchaResponse);
-            // Make an AJAX request to insert.php
+
+            // AJAX request
             $.ajax({
                 type: "POST",
                 url: "config/insert.php",      
                 data: formData,
-                dataType: "json", // Expecting a JSON response
+                dataType: "json",  // Expecting a JSON response
                 success: function(response) {
-                    // Check the response status
                     if (response.status === "success") {
                         // Show success message
-                        $("#notification").html('<div class="alert shadow alert-success alert-dismissible fade show" id="auto-close-alert" role="alert">' + response.message + '  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
-                        $(form).trigger('reset');
-                        var closeModal = document.getElementById('closeModal')
-                        setTimeout(() => {
-                            closeModal.click()
+                        $("#notification").html('<div class="alert alert-success alert-dismissible fade show" id="auto-close-alert" role="alert">' + response.message + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
+                        $(form).trigger('reset');  // Reset form fields
+                        grecaptcha.reset(); // Reset capcha
+                        setTimeout(function() {
+                            $('#closeModal').click();  // Close modal after 500ms
                         }, 500);
                     } else {
                         // Show error message
-                        $("#notification").html('<div class="alert shadow alert-danger alert-dismissible fade show" id="auto-close-alert" role="alert">' + response.message + '  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
+                        $("#notification").html('<div class="alert alert-danger alert-dismissible fade show" id="auto-close-alert" role="alert">' + response.message + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
+                        grecaptcha.reset(); // Reset capcha
                     }
                 },
                 error: function() {
                     // Handle AJAX request errors
-                    $("#notification").html('<div class="alert shadow alert-danger alert-dismissible fade show" id="auto-close-alert" role="alert">An error occurred. Please try again later.  <button type="button"  class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
+                    $("#notification").html('<div class="alert alert-danger alert-dismissible fade show" id="auto-close-alert" role="alert">An error occurred. Please try again later.<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
                 }
-            }).then(()=>{
+            }).then(() => {
+                // Automatically close the alert after 3 seconds
                 setTimeout(function() {
                     var alert = document.getElementById('auto-close-alert');
                     var closeButton = alert.querySelector('.btn-close');
-                    closeButton.click(); // Simulate clicking the close button
+                    closeButton.click();  // Simulate clicking the close button
                 }, 3000);
-            })
-
+            });
         }
     });
 });
