@@ -1,4 +1,5 @@
-
+const navbar = document.getElementById("navbar");
+navbar.style.top = '-180px'
 
 
 let screenTop = document.getElementById('screenTop')
@@ -6,12 +7,24 @@ let screenBottom = document.getElementById('screenBottom')
 setTimeout(() => {
     screenTop.classList.add('page-enter')
     screenBottom.classList.add('page-enter')
+    setTimeout(() => {
+        navbar.style.top = '0px'
+        setTimeout(() => {
+            document.getElementById('feather').classList.add('showDiv')
+            setTimeout(() => {
+                document.getElementById('homeTitle').classList.add('showDiv')
+                setTimeout(() => {
+                    document.getElementById('bella').classList.add('showDiv')
+                }, 200);
+            }, 200);
+        }, 200);
+    }, 1000);
 }, 500);
 
 let lastScrollTop = 100;
-const navbar = document.getElementById("navbar");
 
 const divTransitions = [
+    'homeTitle',
     'bella',
     'feather',
     'congratsTitle',

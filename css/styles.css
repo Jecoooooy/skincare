@@ -32,7 +32,7 @@
 /* !              navbar              */
 /* !================================= */
 .navbar {
-  transition: all 0.5s ease-in-out;
+  transition: all 0.6s cubic-bezier(0.6, 0.09, 0.56, 0.88);
   min-height: 180px;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -59,6 +59,12 @@
 }
 .home-title{
   font-size: 60px!important;
+}
+
+#homeTitle{
+  opacity: 0;
+  transform: translateY(-20%);
+  transition: opacity 0.6s cubic-bezier(0.6, 0.09, 0.56, 0.88), transform 0.6s cubic-bezier(0.6, 0.09, 0.56, 0.88);
 }
 .bella-container{
   position: absolute;
@@ -378,7 +384,7 @@ p,h1,h2,h3,h4,h5,h6,a,li{
   height: 50%;
   background-color: #F0F1F2;
   z-index: 3000;
-  transition: height 2s cubic-bezier( 0.6, 0.09, 0.56, 0.88 );
+  transition: height 1s cubic-bezier( 0.6, 0.09, 0.56, 0.88 );
 }
 #screenBottom{
   position: fixed;
@@ -388,7 +394,7 @@ p,h1,h2,h3,h4,h5,h6,a,li{
   height: 50%;
   background-color: #F0F1F2;
   z-index: 3000;
-  transition: height 2s cubic-bezier( 0.6, 0.09, 0.56, 0.88 );
+  transition: height 1s cubic-bezier( 0.6, 0.09, 0.56, 0.88 );
 
 }
 .page-enter{
