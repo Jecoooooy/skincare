@@ -2,7 +2,7 @@
 include 'database.php';
 header('Content-Type: application/json');
 
-// Check if the POST request contains the required fields
+
 if (isset($_POST['first_name'], $_POST['last_name'], $_POST['phone_number'], $_POST['email'], $_POST['g-recaptcha-response'])) {
     $first_name = htmlspecialchars($_POST['first_name'], ENT_QUOTES, 'UTF-8');
     $last_name = htmlspecialchars($_POST['last_name'], ENT_QUOTES, 'UTF-8');
@@ -10,9 +10,9 @@ if (isset($_POST['first_name'], $_POST['last_name'], $_POST['phone_number'], $_P
     $email = htmlspecialchars($_POST['email'], ENT_QUOTES, 'UTF-8');
     $captchaResponse = $_POST['g-recaptcha-response'];
 
-    $secretKey = "6LdS_4QqAAAAALwfGsrtLNHkapFIMIp73Udp98D1";  // Use your secret key here
+    $secretKey = "6LdS_4QqAAAAALwfGsrtLNHkapFIMIp73Udp98D1";  
 
-    // Verify CAPTCHA response
+    // Verify CAPTCHA 
     $verifyUrl = 'https://www.google.com/recaptcha/api/siteverify';
     $response = file_get_contents($verifyUrl . '?secret=' . $secretKey . '&response=' . $captchaResponse);
     $responseKeys = json_decode($response, true);
@@ -25,7 +25,7 @@ if (isset($_POST['first_name'], $_POST['last_name'], $_POST['phone_number'], $_P
         exit;
     }
 
-    // Prepare the SQL statement using prepared statements to prevent SQL injection
+
     $stmt = $conn->prepare("INSERT INTO register (first_name, last_name, phone_number, email, created_at) VALUES (?, ?, ?, ?, NOW())");
     $stmt->bind_param("ssss", $first_name, $last_name, $phone_number, $email);
 
@@ -46,7 +46,7 @@ if (isset($_POST['first_name'], $_POST['last_name'], $_POST['phone_number'], $_P
         ]);
     }
 
-    // Close the prepared statement and database connection
+
     $stmt->close();
     $conn->close();
 } else {

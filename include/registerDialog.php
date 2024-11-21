@@ -6,25 +6,25 @@
                     <img src="./images/modalPhoto.svg" class="object-fit-cover" alt="modal photo">
                 </div>
                 <div class="register-dialog p-4">
-                    <div class="d-flex justify-content-end w-100">
+                    <div class="d-flex justify-content-end w-100 ">
                         <button type="button" id="closeModal" class="btn-close" data-bs-dismiss="modal"></button>
                     </div>
-                    <h2 class="modal-title" id="registerModalLabel">REGISTER TO LEARN MORE</h2>
+                    <h2 class="modal-title mb-2" id="registerModalLabel">REGISTER TO LEARN MORE</h2>
                     <form id="registerForm" action="config/insert.php" method="POST">
-                        <div class="form-group">
-                            <label for="first_name">First Name</label>
+                        <div class="form-group ">
+                            <label class="form-label" for="first_name">First Name</label>
                             <input type="text" class="form-control" id="first_name" name="first_name" required>
                         </div>
                         <div class="form-group">
-                            <label for="last_name">Last Name</label>
+                            <label class="form-label" for="last_name">Last Name</label>
                             <input type="text" class="form-control" id="last_name" name="last_name" required>
                         </div>
                         <div class="form-group">
-                            <label for="phone_number">Phone Number</label>
+                            <label class="form-label" for="phone_number">Phone Number</label>
                             <input type="text" class="form-control" id="phone_number" name="phone_number" required>
                         </div>
                         <div class="form-group">
-                            <label for="email">Email</label>
+                            <label class="form-label" for="email">Email</label>
                             <input type="email" class="form-control" id="email" name="email" required>
                         </div>
                         <br>

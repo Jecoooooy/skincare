@@ -48,7 +48,14 @@ $(document).ready(function() {
             var captchaResponse = grecaptcha.getResponse();
             
             if (!captchaResponse) {
-                alert("Please verify that you are not a robot.");
+                // alert("Please verify that you are not a robot.");
+                // return false;
+                $("#notification").html('<div class="alert alert-danger alert-dismissible fade show" id="auto-close-alert" role="alert">Please verify that you are not a robot.<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
+                setTimeout(function() {
+                    var alert = document.getElementById('auto-close-alert');
+                    var closeButton = alert.querySelector('.btn-close');
+                    closeButton.click();  // Simulate clicking the close button
+                }, 3000);
                 return false;
             }
 
