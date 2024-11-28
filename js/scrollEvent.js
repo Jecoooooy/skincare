@@ -1,3 +1,10 @@
+window.addEventListener('load', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
 const navbar = document.getElementById("navbar");
 navbar.style.top = '-180px'
 
@@ -65,14 +72,13 @@ window.addEventListener("scroll", () => {
         navbar.classList.remove('shadow-sm')
     }
     if (scrollTop > lastScrollTop) {
-        // Scrolling down
+
         navbar.style.top = "-180px";
     } else {
-        // Scrolling up
         navbar.style.top = "0";
 
     }
-    lastScrollTop = scrollTop <= 100 ? 100 : scrollTop; // For mobile or negative scrolling
+    lastScrollTop = scrollTop <= 100 ? 100 : scrollTop; 
 
     const windowHeight = window.innerHeight;
     const windowBottom = window.scrollY + (windowHeight - 200)
@@ -106,31 +112,4 @@ window.addEventListener("scroll", () => {
     }
 
 
-
-
-
-
-
-
-
-
-    // const bellaTop = bella.getBoundingClientRect().top - mainPageRect.top
-    // const bellaBottom = bellaTop + bella.getBoundingClientRect().height
-
-    // if((windowBottom + 100 )> bellaTop && (windowtop- 100 ) < bellaBottom){
-        
-    //     const bellaRect = bella.children[0].getBoundingClientRect();
-    //     const bellaTop = bellaRect.top - mainPageRect.top
-    //     const bellaBottom = bellaTop + bellaRect.height
-
-
-    //     if( windowBottom > bellaTop  &&  windowtop < bellaBottom){
-    //         bella.classList.add("slide-right")
-    //     }else{ 
-    //         bella.classList.remove("slide-right")
-            
-    //     }
-    // }else{
-    //     console.log("outside");
-    // }
 });

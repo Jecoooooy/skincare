@@ -11,12 +11,12 @@
             <?php while($data = mysqli_fetch_assoc($influencers_data)) : ?>
                 <div class="col-lg-4 col-md-4 col-sm-6 col-12 py-4" style="min-height:550px;">
                     <div id="cardInfluencer<?= $data['id']; ?>" class="card card-influencer rounded-5 overflow-hidden shadow m-auto" style="max-width:450px;">
-                        <!-- <div> -->
-                            <img src="<?= $data['image']; ?>" class="img-fluid  card-img-top " alt="no photo available">
-                        <!-- </div> -->
-                        <div class="d-flex align-items-center card-body ">
-                            <img src="<?= $data['image']; ?>" class=" rounded-circle border border-dark shadow" style="object-fit: cover;"   alt="avatar" width="70" height="70">
-                            <div class="px-2">
+                        <div class="w-100 overflow-hidden position-relative influencer-photo-container">
+                            <img src="<?= $data['image']; ?>" class="img-fluid influencer-photo  card-img-top " alt="no photo available">
+                        </div>
+                        <div class="d-flex align-items-center justify-content-center justify-content-md-start card-body ">
+                            <img src="<?= $data['image']; ?>" class=" rounded-circle  shadow" style="object-fit: cover;"   alt="avatar" width="70" height="70">
+                            <div class="px-4">
                                 <h5><?= $data['name']; ?></h5>
                                 <p><?= $data['email']; ?></p>
                             </div>
