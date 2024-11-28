@@ -1,6 +1,19 @@
 Skincare 💆‍♀️✨
 Welcome to the Skincare project, a responsive and interactive web page designed to manage and showcase skincare products effectively.
-This project uses HTML, CSS, JavaScript, PHP, jQuery, and Bootstrap for a seamless user experience.
+
+Technologies Used:
+
+Frontend:
+    HTML5 for structuring content.
+    CSS3 for styling.
+    Vanilla JavaScript for interactivity and DOM manipulation.
+    JQuery for validation
+
+Backend:
+    PHP for server-side scripting and logic.
+
+Database
+    MySql for data storage and management.
 
 
 🛠️ Getting Started
